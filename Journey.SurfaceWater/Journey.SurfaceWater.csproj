@@ -3,6 +3,28 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>地表水环境质量相关方法</Title>
+    <Version>0.0.1</Version>
+    <Authors>Journey</Authors>
+    <Company />
+    <Description>根据地表水环境质量标准 GB 3838 形成的计算方法。提供水质类别标准限值获取、根据类别获取对应的标准限值、根据浓度值获取对应的类别等功能。
+请先查看Journey.SurfaceWater.Enums</Description>
+    <PackageIcon>Arrioch-Orbz-Orbz-water.128.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="C:\Users\sm1le\Downloads\Arrioch-Orbz-Orbz-water.128.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
