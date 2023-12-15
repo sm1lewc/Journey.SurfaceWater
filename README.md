@@ -1,14 +1,11 @@
-# Journey.SurfaceWater
+# Namespace Journey.SurfaceWater
 
-# 1.监测指标 Factors  
+# 1 Journey.SurfaceWater.Enums 定义的枚举
+## 1.1 Factor 监测指标  
 没有完全延续总站以往的规定，稍微改动了,去掉"-"、"_"符号并全部大写，主要是为了方便编码。  
 
 |单词/简写|说明|编码|
 |:-------------:|:--------------:|:-----------------------:|
-|BasicItem|基本项目||
-|StandardLimit|标准限值||
-|Grade|类别|1:Ⅰ,2:Ⅱ,3:Ⅲ,4:Ⅳ,5:Ⅴ,6:劣Ⅴ|
-|WaterGrade|水质类别|1:Ⅰ,2:Ⅱ,3:Ⅲ,4:Ⅳ,5:Ⅴ,6:劣Ⅴ|
 |WT|水温|w01010|
 |PH|pH|w01001|
 |DO|溶解氧|w01009|
@@ -34,4 +31,46 @@
 |H2S|硫化物|w21019|
 |FC|粪大肠菌群|w02003|
 
-# 2.地表水环境质量标准 EQSFSW
+## 1.2 Waterbody 水体类型  
+主要是为了在计算总磷的相关业务中使用，目前仅使用 河流/湖库，其他枚举返回Null。
+
+## 1.3 WaterGrade 水质类别
+|类别文本|类别值|
+|:-------------:|:--------------:|
+|Ⅰ|1|
+|Ⅱ|2|
+|Ⅲ|3|
+|Ⅳ|4|
+|Ⅴ|5|
+|劣Ⅴ|6|
+# 2 Journey.SurfaceWater.EQSFSW 地表水环境质量标准
+## 2.1 V2002.GradeService 水质类别的相关计算
+|方法名|说明|返回值|
+|:-------------:|:--------------:|:--------------:|
+|GetFactorGradeByAbbreviation|根据监测指标的简写计算指标的类别|(int,string)? eg. (4,Ⅳ)|
+|GetFactorGradeByCode|根据监测指标的编码计算指标的类别|(int,string)?  eg. (4,Ⅳ)|
+|Get{监测指标}Grade|计算监测指标的类别|(int,string)?  eg. (4,Ⅳ)|
+|GetWaterGrade|计算整条数据的水质类别|Models.V2002.BasicItemValuesAndGrades|
+## 2.2 V2002.StandardLimitService 标准限值的相关计算
+|方法名|说明|返回值|
+|:-------------:|:--------------:|:--------------:|
+|GetPHLimit|获取PH的标准限值范围|(6,9)|
+|Get{监测指标}Limits|获取监测指标Ⅰ-Ⅴ类标准限值|List\<StandardLimit\>|
+|Get{监测指标}LimitByGrade|获取监测指标某一类别的标准限值|double?|
+# 3 Journey.SurfaceWater.Factors 监测指标
+## 3.1 FactorService 监测指标的相关计算
+提供偷懒的方法，也可以通过枚举Enums.Factor获取  
+
+|方法名|说明|返回值|
+|:-------------:|:--------------:|:--------------:|
+|GetFactorName|根据监测指标的缩写或者编码获取监测指标的名称|string?|
+|GetFactorAbbreviationByCode|根据监测指标的编码获取监测指标的缩写|string?|
+|GetFactorAbbreviationByName|根据监测指标的名称获取监测指标的缩写|string?|
+|GetFactorCodeByAbbreviation|根据监测指标的缩写获取监测指标的编码|string?|
+|GetFactorCodeByName|根据监测指标的名称获取监测指标的编码|string?|
+# 4 Journey.SurfaceWater.Models 定义的模型
+|类名|说明|
+|:-------------:|:--------------:|
+|V2002.BasicItemValues|GB 3838-2002《地表水环境质量标准》中表1的24个基本项目|
+|V2002.BasicItemValuesAndGrades|继承BasicItemValues，增加各项指标水质类别及类别文本|
+|StandardLimit|标准限值 {Grade,Limit}|

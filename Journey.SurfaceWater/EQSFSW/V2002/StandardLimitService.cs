@@ -192,9 +192,9 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="waterBody">河流/湖库</param>
         /// <returns></returns>
-        public static List<StandardLimit> GetTPLimits(Enums.WaterBody waterBody = Enums.WaterBody.河流)
+        public static List<StandardLimit> GetTPLimits(Enums.Waterbody waterBody = Enums.Waterbody.河流)
         {
-            if (waterBody == Enums.WaterBody.湖库) return new List<StandardLimit>()
+            if (waterBody == Enums.Waterbody.湖库) return new List<StandardLimit>()
             {
                 new StandardLimit(){Grade = 1,Limit = 0.01},
                 new StandardLimit(){Grade = 2,Limit = 0.025},
@@ -218,9 +218,9 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// <param name="grade"></param>
         /// <param name="waterBody">河流/湖库</param>
         /// <returns></returns>
-        public static double? GetTPLimitByGrade(Enums.WaterGrade grade, Enums.WaterBody waterBody = Enums.WaterBody.河流)
+        public static double? GetTPLimitByGrade(Enums.WaterGrade grade, Enums.Waterbody waterBody = Enums.Waterbody.河流)
         {
-            if (waterBody == Enums.WaterBody.湖库) return grade switch
+            if (waterBody == Enums.Waterbody.湖库) return grade switch
             {
                 Enums.WaterGrade.Ⅰ => 0.01,
                 Enums.WaterGrade.Ⅱ => 0.025,

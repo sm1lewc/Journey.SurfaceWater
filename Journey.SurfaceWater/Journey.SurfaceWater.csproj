@@ -10,18 +10,24 @@
     <Authors>Journey</Authors>
     <Company />
     <Description>根据地表水环境质量标准 GB 3838 形成的计算方法。提供水质类别标准限值获取、根据类别获取对应的标准限值、根据浓度值获取对应的类别等功能。
-请先查看Journey.SurfaceWater.Enums</Description>
+请先查看Journey.SurfaceWater.Enums，详情查看Github。</Description>
     <PackageIcon>Arrioch-Orbz-Orbz-water.128.png</PackageIcon>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile>Nuget.Readme.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl></PackageProjectUrl>
+    <RepositoryUrl>https://github.com/sm1lewc/Journey.SurfaceWater</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md">
+    <None Include="C:\Users\sm1le\Downloads\Arrioch-Orbz-Orbz-water.128.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <None Include="C:\Users\sm1le\Downloads\Arrioch-Orbz-Orbz-water.128.png">
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Nuget.Readme.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

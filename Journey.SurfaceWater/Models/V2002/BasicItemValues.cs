@@ -1,4 +1,4 @@
-﻿namespace Journey.SurfaceWater.Models
+﻿namespace Journey.SurfaceWater.Models.V2002
 {
     /// <summary>
     /// GB 3838《地表水环境质量标准》中表1的基本项目

@@ -1,5 +1,5 @@
 using Journey.SurfaceWater.EQSFSW.V2002;
-using Journey.SurfaceWater.Models;
+using Journey.SurfaceWater.Models.V2002;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 

@@ -1,5 +1,5 @@
 ﻿using Journey.SurfaceWater.Enums;
-using Journey.SurfaceWater.Models;
+using Journey.SurfaceWater.Models.V2002;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// <param name="value"></param>
         /// <param name="waterbody">水体类型(计算总磷类别时候需要,河流/湖库)</param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetFactorGradeByAbbreviation(string abbreviation, double value, WaterBody waterbody = WaterBody.河流)
+        public static (int, string)? GetFactorGradeByAbbreviation(string abbreviation, double value, Waterbody waterbody = Waterbody.河流)
         {
             return abbreviation.ToUpper() switch
             {
@@ -57,7 +57,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// <param name="value"></param>
         /// <param name="waterBody">水体类型(计算总磷类别时候需要,河流/湖库)</param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetFactorGradeByCode(string factorCode, double value, WaterBody waterBody = WaterBody.河流)
+        public static (int, string)? GetFactorGradeByCode(string factorCode, double value, Waterbody waterBody = Waterbody.河流)
         {
             return factorCode.ToUpper() switch
             {
@@ -193,10 +193,10 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// <param name="value"></param>
         /// <param name="waterbody">河流/湖库,其它则返回null</param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetTPGrade(double value, Enums.WaterBody waterbody = WaterBody.河流)
+        public static (int, string)? GetTPGrade(double value, Enums.Waterbody waterbody = Waterbody.河流)
         {
             if (value <= 0) return null;
-            if (waterbody == WaterBody.河流)
+            if (waterbody == Waterbody.河流)
             {
                 if (value <= 0.02) return (1, "Ⅰ");
                 if (value <= 0.1) return (2, "Ⅱ");
@@ -206,7 +206,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
                 if (value > 0.4) return (6, "劣Ⅴ");
                 return null;
             }
-            else if (waterbody == WaterBody.湖库)
+            else if (waterbody == Waterbody.湖库)
             {
                 if (value <= 0.01) return (1, "Ⅰ");
                 if (value <= 0.025) return (2, "Ⅱ");
@@ -469,7 +469,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// <param name="isAnalysisTN">整体水质类别中是否加入总氮的类别,true:加入,false:不加入</param>
         /// <param name="isAnalysisFC">整体水质类别中是否加入粪大肠菌群的类别,true:加入,false:不加入</param>
         /// <returns></returns>
-        public static BasicItemValuesAndGrades? GetWaterGrade(BasicItemValues data, WaterBody waterbody = WaterBody.河流, bool isAnalysisTN = false, bool isAnalysisFC = false)
+        public static BasicItemValuesAndGrades? GetWaterGrade(BasicItemValues data, Waterbody waterbody = Waterbody.河流, bool isAnalysisTN = false, bool isAnalysisFC = false)
         {
             var result = new BasicItemValuesAndGrades
             {

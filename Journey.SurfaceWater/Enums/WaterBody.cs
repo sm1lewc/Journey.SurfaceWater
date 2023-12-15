@@ -3,7 +3,7 @@
     /// <summary>
     /// 水体类型枚举
     /// </summary>
-    public enum WaterBody
+    public enum Waterbody
     {
         /// <summary>
         /// 
