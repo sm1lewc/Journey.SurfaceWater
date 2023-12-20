@@ -1,4 +1,5 @@
 # Namespace Journey.SurfaceWater
+[更新记录](https://github.com/sm1lewc/Journey.SurfaceWater/blob/master/Journey.SurfaceWater/%E6%9B%B4%E6%96%B0%E8%AF%B4%E6%98%8E.md)
 
 # 1 Journey.SurfaceWater.Enums 定义的枚举
 ## 1.1 Factor 监测指标  
