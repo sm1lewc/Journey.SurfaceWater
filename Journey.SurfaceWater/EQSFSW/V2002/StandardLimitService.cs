@@ -1,4 +1,5 @@
-﻿using Journey.SurfaceWater.Models;
+﻿using Journey.SurfaceWater.Enums;
+using Journey.SurfaceWater.Models;
 using System.Collections.Generic;
 
 namespace Journey.SurfaceWater.EQSFSW.V2002
@@ -636,7 +637,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double?  GetPHENLimitByGrade(Enums.WaterGrade grade)
+        public static double? GetPHENLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
@@ -783,6 +784,187 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
                 Enums.WaterGrade.Ⅴ => 40000,
                 _ => null,
             };
+        }
+
+
+        /// <summary>
+        /// 获取硫酸盐的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetSO42Limit() => 250;
+
+        /// <summary>
+        /// 获取氯化物的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetCLLimit() => 250;
+
+        /// <summary>
+        /// 获取硝酸盐的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetNO3Limit() => 10;
+
+        /// <summary>
+        /// 获取铁的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetFELimit() => 0.3;
+
+        /// <summary>
+        /// 获取锰的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetMNLimit() => 0.1;
+
+        /// <summary>
+        /// 获取钼的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetMOLimit() => 0.07;
+
+        /// <summary>
+        /// 获取钴的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetCOLimit() => 1;
+
+        /// <summary>
+        /// 获取铍的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetBELimit() => 0.002;
+
+        /// <summary>
+        /// 获取硼的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetBLimit() => 0.5;
+
+        /// <summary>
+        /// 获取锑的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetSBLimit() => 0.005;
+
+        /// <summary>
+        /// 获取镍的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetNILimit() => 0.02;
+
+        /// <summary>
+        /// 获取钡的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetBALimit() => 0.7;
+
+        /// <summary>
+        /// 获取钒的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetVLimit() => 0.05;
+
+        /// <summary>
+        /// 获取钛的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetTILimit() => 0.1;
+
+        /// <summary>
+        /// 获取铊的标准值
+        /// </summary>
+        /// <returns></returns>
+        public static double GetTLLimit() => 0.0001;
+
+        /// <summary>
+        /// 根据指标的简写或者代码获取类别的标准限值
+        /// 对于非表1中的指标，grade参数无效，可任意值
+        /// </summary>
+        /// <param name="grade"></param>
+        /// <param name="factorAbbrOrCode">codmn或w01019,不区分大小写</param>
+        /// <param name="waterbody"></param>
+        /// <returns></returns>
+        public static double? GetFactorLimitByGradeAndFactor(Enums.WaterGrade grade, string factorAbbrOrCode, Waterbody waterbody = Waterbody.河流)
+        {
+            switch (factorAbbrOrCode.ToUpper())
+            {
+                case "DO":
+                case "W01009": return GetDOLimitByGrade(grade);
+                case "CODMN":
+                case "W01019": return GetCODMNLimitByGrade(grade);
+                case "COD":
+                case "W01018": return GetCODLimitByGrade(grade);
+                case "BOD5":
+                case "W01017": return GetBOD5LimitByGrade(grade);
+                case "NH3N":
+                case "W21003": return GetNH3NLimitByGrade(grade);
+                case "TP":
+                case "W21011": return GetTPLimitByGrade(grade, waterbody);
+                case "TN":
+                case "W21001": return GetTNLimitByGrade(grade);
+                case "CU":
+                case "W20122": return GetCULimitByGrade(grade);
+                case "ZN":
+                case "W20123": return GetZNLimitByGrade(grade);
+                case "F":
+                case "W21017": return GetFLimitByGrade(grade);
+                case "SE":
+                case "W20128": return GetSELimitByGrade(grade);
+                case "AS":
+                case "W20141": return GetASLimitByGrade(grade);
+                case "HG":
+                case "W20111": return GetHGLimitByGrade(grade);
+                case "CD":
+                case "W20115": return GetCDLimitByGrade(grade);
+                case "CR6":
+                case "W20117": return GetCR6LimitByGrade(grade);
+                case "PB":
+                case "W20120": return GetPBLimitByGrade(grade);
+                case "CN":
+                case "W21016": return GetCNLimitByGrade(grade);
+                case "PHEN":
+                case "W23002": return GetPHENLimitByGrade(grade);
+                case "TPH":
+                case "W22001": return GetTPHLimitByGrade(grade);
+                case "LAS":
+                case "W19002": return GetLASLimitByGrade(grade);
+                case "H2S":
+                case "W21019": return GetH2SLimitByGrade(grade);
+                case "FC":
+                case "W02003": return GetFCLimitByGrade(grade);
+                case "SO42":
+                case "W21038": return GetSO42Limit();
+                case "CL":
+                case "W21022": return GetCLLimit();
+                case "NO3":
+                case "W21007": return GetNO3Limit();
+                case "FE":
+                case "W20125": return GetFELimit();
+                case "MN":
+                case "W20124": return GetMNLimit();
+                case "MO":
+                case "W20061": return GetMOLimit();
+                case "CO":
+                case "W20038": return GetCOLimit();
+                case "BE":
+                case "W20127": return GetBELimit();
+                case "B":
+                case "W20023": return GetBLimit();
+                case "SB":
+                case "W20004": return GetSBLimit();
+                case "NI":
+                case "W20121": return GetNILimit();
+                case "BA":
+                case "W20012": return GetBALimit();
+                case "V":
+                case "W20101": return GetVLimit();
+                case "TI":
+                case "W20095": return GetTILimit();
+                case "TL":
+                case "W20089": return GetTLLimit();
+                default: return null;
+            }
         }
     }
 }

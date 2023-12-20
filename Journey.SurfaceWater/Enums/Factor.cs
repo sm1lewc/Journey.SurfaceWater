@@ -126,6 +126,81 @@ namespace Journey.SurfaceWater.Enums
         /// FC
         /// </summary>
         [Description("w02003")]
-        粪大肠菌群
+        粪大肠菌群,
+        /// <summary>
+        /// SO42
+        /// </summary>
+        [Description("w21038")]
+        硫酸盐,
+        /// <summary>
+        /// CL
+        /// </summary>
+        [Description("w21022")]
+        氯化物,
+        /// <summary>
+        /// NO3
+        /// </summary>
+        [Description("w21007")]
+        硝酸盐,
+        /// <summary>
+        /// FE
+        /// </summary>
+        [Description("w20125")]
+        铁,
+        /// <summary>
+        /// MN
+        /// </summary>
+        [Description("w20124")]
+        锰,
+        /// <summary>
+        /// MO
+        /// </summary>
+        [Description("w20061")]
+        钼,
+        /// <summary>
+        /// CO
+        /// </summary>
+        [Description("w20038")]
+        钴,
+        /// <summary>
+        /// BE
+        /// </summary>
+        [Description("w20127")]
+        铍,
+        /// <summary>
+        /// B
+        /// </summary>
+        [Description("w20023")]
+        硼,
+        /// <summary>
+        /// SB
+        /// </summary>
+        [Description("w20004")]
+        锑,
+        /// <summary>
+        /// NI
+        /// </summary>
+        [Description("w20121")]
+        镍,
+        /// <summary>
+        /// BA
+        /// </summary>
+        [Description("w20012")]
+        钡,
+        /// <summary>
+        /// V
+        /// </summary>
+        [Description("w20101")]
+        钒,
+        /// <summary>
+        /// TI
+        /// </summary>
+        [Description("w20095")]
+        钛,
+        /// <summary>
+        /// TL
+        /// </summary>
+        [Description("w20089")]
+        铊
     }
 }

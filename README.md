@@ -30,6 +30,21 @@
 |LAS|阴离子表面活性剂|w19002|
 |H2S|硫化物|w21019|
 |FC|粪大肠菌群|w02003|
+|SO42|硫酸盐|w21038|
+|CL|氯化物|w21022|
+|NO3|硝酸盐|w21007|
+|FE|铁|w20125|
+|MN|锰|w20124|
+|MO|钼|w20061|
+|CO|钴|w20038|
+|BE|铍|w20127|
+|B|硼|w20023|
+|SB|锑|w20004|
+|NI|镍|w20121|
+|BA|钡|w20012|
+|V|钒|w20101|
+|TI|钛|w20095|
+|TL|铊|w20089|
 
 ## 1.2 Waterbody 水体类型  
 主要是为了在计算总磷的相关业务中使用，目前仅使用 河流/湖库，其他枚举返回Null。
@@ -57,6 +72,7 @@
 |GetPHLimit|获取PH的标准限值范围|(6,9)|
 |Get{监测指标}Limits|获取监测指标Ⅰ-Ⅴ类标准限值|List\<StandardLimit\>|
 |Get{监测指标}LimitByGrade|获取监测指标某一类别的标准限值|double?|
+|GetFactorLimitByGradeAndFactor|根据指标的简写或者代码获取类别的标准限值<br>Get{监测指标}LimitByGrade方法的集中入口，不区分大小写|double?|
 # 3 Journey.SurfaceWater.Factors 监测指标
 ## 3.1 FactorService 监测指标的相关计算
 提供偷懒的方法，也可以通过枚举Enums.Factor获取  
