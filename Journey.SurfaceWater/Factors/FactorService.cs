@@ -63,6 +63,36 @@
                 case "W21019": return "硫化物";
                 case "FC":
                 case "W02003": return "粪大肠菌群";
+                case "SO42":
+                case "W21038": return "硫酸盐";
+                case "CL":
+                case "W21022": return "氯化物";
+                case "NO3":
+                case "W21007": return "硝酸盐";
+                case "FE":
+                case "W20125": return "铁";
+                case "MN":
+                case "W20124": return "锰";
+                case "MO":
+                case "W20061": return "钼";
+                case "CO":
+                case "W20038": return "钴";
+                case "BE":
+                case "W20127": return "铍";
+                case "B":
+                case "W20023": return "硼";
+                case "SB":
+                case "W20004": return "锑";
+                case "NI":
+                case "W20121": return "镍";
+                case "BA":
+                case "W20012": return "钡";
+                case "V":
+                case "W20101": return "钒";
+                case "TI":
+                case "W20095": return "钛";
+                case "TL":
+                case "W20089": return "铊";
                 default: return null;
             }
         }
