@@ -6,7 +6,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>地表水环境质量相关方法</Title>
-    <Version>0.0.0.2</Version>
+    <Version>0.0.0.4</Version>
     <Authors>Journey</Authors>
     <Company />
     <Description>根据地表水环境质量标准 GB 3838 形成的计算方法。提供水质类别标准限值获取、根据类别获取对应的标准限值、根据浓度值获取对应的类别等功能。

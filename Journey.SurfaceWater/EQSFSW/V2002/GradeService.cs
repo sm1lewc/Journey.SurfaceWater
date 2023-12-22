@@ -19,7 +19,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// <param name="value"></param>
         /// <param name="waterbody">水体类型(计算总磷类别时候需要,河流/湖库)</param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetFactorGradeByAbbreviation(string abbreviation, double value, Waterbody waterbody = Waterbody.河流)
+        public static (int, string)? GetFactorGradeByAbbreviation(string abbreviation, decimal value, Waterbody waterbody = Waterbody.河流)
         {
             return abbreviation.ToUpper() switch
             {
@@ -57,7 +57,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// <param name="value"></param>
         /// <param name="waterBody">水体类型(计算总磷类别时候需要,河流/湖库)</param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetFactorGradeByCode(string factorCode, double value, Waterbody waterBody = Waterbody.河流)
+        public static (int, string)? GetFactorGradeByCode(string factorCode, decimal value, Waterbody waterBody = Waterbody.河流)
         {
             return factorCode.ToUpper() switch
             {
@@ -98,7 +98,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetPHGrade(double value)
+        public static (int, string)? GetPHGrade(decimal value)
         {
             if (value <= 0) return null;
             if (value >= 6 && value <= 9) return (1, "Ⅰ");
@@ -110,10 +110,10 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetDOGrade(double value)
+        public static (int, string)? GetDOGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value >= 7.5) return (1, "Ⅰ");
+            if (value >= 7.5m) return (1, "Ⅰ");
             if (value >= 6) return (2, "Ⅱ");
             if (value >= 5) return (3, "Ⅲ");
             if (value >= 3) return (4, "Ⅳ");
@@ -127,7 +127,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetCODMNGrade(double value)
+        public static (int, string)? GetCODMNGrade(decimal value)
         {
             if (value <= 0) return null;
             if (value <= 2) return (1, "Ⅰ");
@@ -143,7 +143,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetCODGrade(double value)
+        public static (int, string)? GetCODGrade(decimal value)
         {
             if (value <= 0) return null;
             if (value <= 15) return (1, "Ⅰ");
@@ -159,7 +159,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetBOD5Grade(double value)
+        public static (int, string)? GetBOD5Grade(decimal value)
         {
             if (value <= 0) return null;
             if (value <= 3) return (1, "Ⅰ");
@@ -175,13 +175,13 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetNH3NGrade(double value)
+        public static (int, string)? GetNH3NGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.15) return (1, "Ⅰ");
-            if (value <= 0.5) return (2, "Ⅱ");
+            if (value <= 0.15m) return (1, "Ⅰ");
+            if (value <= 0.5m) return (2, "Ⅱ");
             if (value <= 1) return (3, "Ⅲ");
-            if (value <= 1.5) return (4, "Ⅳ");
+            if (value <= 1.5m) return (4, "Ⅳ");
             if (value <= 2) return (5, "Ⅴ");
             if (value > 2) return (6, "劣Ⅴ");
             return null;
@@ -193,27 +193,27 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// <param name="value"></param>
         /// <param name="waterbody">河流/湖库,其它则返回null</param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetTPGrade(double value, Enums.Waterbody waterbody = Waterbody.河流)
+        public static (int, string)? GetTPGrade(decimal value, Enums.Waterbody waterbody = Waterbody.河流)
         {
             if (value <= 0) return null;
             if (waterbody == Waterbody.河流)
             {
-                if (value <= 0.02) return (1, "Ⅰ");
-                if (value <= 0.1) return (2, "Ⅱ");
-                if (value <= 0.2) return (3, "Ⅲ");
-                if (value <= 0.3) return (4, "Ⅳ");
-                if (value <= 0.4) return (5, "Ⅴ");
-                if (value > 0.4) return (6, "劣Ⅴ");
+                if (value <= 0.02m) return (1, "Ⅰ");
+                if (value <= 0.1m) return (2, "Ⅱ");
+                if (value <= 0.2m) return (3, "Ⅲ");
+                if (value <= 0.3m) return (4, "Ⅳ");
+                if (value <= 0.4m) return (5, "Ⅴ");
+                if (value > 0.4m) return (6, "劣Ⅴ");
                 return null;
             }
             else if (waterbody == Waterbody.湖库)
             {
-                if (value <= 0.01) return (1, "Ⅰ");
-                if (value <= 0.025) return (2, "Ⅱ");
-                if (value <= 0.05) return (3, "Ⅲ");
-                if (value <= 0.1) return (4, "Ⅳ");
-                if (value <= 0.2) return (5, "Ⅴ");
-                if (value > 0.2) return (6, "劣Ⅴ");
+                if (value <= 0.01m) return (1, "Ⅰ");
+                if (value <= 0.025m) return (2, "Ⅱ");
+                if (value <= 0.05m) return (3, "Ⅲ");
+                if (value <= 0.1m) return (4, "Ⅳ");
+                if (value <= 0.2m) return (5, "Ⅴ");
+                if (value > 0.2m) return (6, "劣Ⅴ");
                 return null;
             }
             else return null;
@@ -224,13 +224,13 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetTNGrade(double value)
+        public static (int, string)? GetTNGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.2) return (1, "Ⅰ");
-            if (value <= 0.5) return (2, "Ⅱ");
+            if (value <= 0.2m) return (1, "Ⅰ");
+            if (value <= 0.5m) return (2, "Ⅱ");
             if (value <= 1) return (3, "Ⅲ");
-            if (value <= 1.5) return (4, "Ⅳ");
+            if (value <= 1.5m) return (4, "Ⅳ");
             if (value <= 2) return (5, "Ⅴ");
             if (value > 2) return (6, "劣Ⅴ");
             return null;
@@ -241,10 +241,10 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetCUGrade(double value)
+        public static (int, string)? GetCUGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.01) return (1, "Ⅰ");
+            if (value <= 0.01m) return (1, "Ⅰ");
             if (value <= 1) return (2, "Ⅱ");
             if (value > 1) return (6, "劣Ⅴ");
             return null;
@@ -255,10 +255,10 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetZNGrade(double value)
+        public static (int, string)? GetZNGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.05) return (1, "Ⅰ");
+            if (value <= 0.05m) return (1, "Ⅰ");
             if (value <= 1) return (2, "Ⅱ");
             if (value <= 2) return (4, "Ⅳ");
             if (value > 2) return (6, "劣Ⅴ");
@@ -270,12 +270,12 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetFGrade(double value)
+        public static (int, string)? GetFGrade(decimal value)
         {
             if (value <= 0) return null;
             if (value <= 1) return (1, "Ⅰ");
-            if (value <= 1.5) return (4, "Ⅳ");
-            if (value > 1.5) return (6, "劣Ⅴ");
+            if (value <= 1.5m) return (4, "Ⅳ");
+            if (value > 1.5m) return (6, "劣Ⅴ");
             return null;
         }
 
@@ -284,12 +284,12 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetSEGrade(double value)
+        public static (int, string)? GetSEGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.01) return (1, "Ⅰ");
-            if (value <= 0.02) return (4, "Ⅳ");
-            if (value > 0.02) return (6, "劣Ⅴ");
+            if (value <= 0.01m) return (1, "Ⅰ");
+            if (value <= 0.02m) return (4, "Ⅳ");
+            if (value > 0.02m) return (6, "劣Ⅴ");
             return null;
         }
 
@@ -298,12 +298,12 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetASGrade(double value)
+        public static (int, string)? GetASGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.05) return (1, "Ⅰ");
-            if (value <= 0.1) return (4, "Ⅳ");
-            if (value > 0.1) return (6, "劣Ⅴ");
+            if (value <= 0.05m) return (1, "Ⅰ");
+            if (value <= 0.1m) return (4, "Ⅳ");
+            if (value > 0.1m) return (6, "劣Ⅴ");
             return null;
         }
 
@@ -312,13 +312,13 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetHGGrade(double value)
+        public static (int, string)? GetHGGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.00005) return (1, "Ⅰ");
-            if (value <= 0.0001) return (3, "Ⅲ");
-            if (value <= 0.001) return (4, "Ⅳ");
-            if (value > 0.001) return (6, "劣Ⅴ");
+            if (value <= 0.00005m) return (1, "Ⅰ");
+            if (value <= 0.0001m) return (3, "Ⅲ");
+            if (value <= 0.001m) return (4, "Ⅳ");
+            if (value > 0.001m) return (6, "劣Ⅴ");
             return null;
         }
 
@@ -327,13 +327,13 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetCDGrade(double value)
+        public static (int, string)? GetCDGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.001) return (1, "Ⅰ");
-            if (value <= 0.005) return (2, "Ⅱ");
-            if (value <= 0.01) return (5, "Ⅴ");
-            if (value > 0.01) return (6, "劣Ⅴ");
+            if (value <= 0.001m) return (1, "Ⅰ");
+            if (value <= 0.005m) return (2, "Ⅱ");
+            if (value <= 0.01m) return (5, "Ⅴ");
+            if (value > 0.01m) return (6, "劣Ⅴ");
             return null;
         }
 
@@ -342,13 +342,13 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetCR6Grade(double value)
+        public static (int, string)? GetCR6Grade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.01) return (1, "Ⅰ");
-            if (value <= 0.05) return (2, "Ⅱ");
-            if (value <= 0.1) return (5, "Ⅴ");
-            if (value > 0.1) return (6, "劣Ⅴ");
+            if (value <= 0.01m) return (1, "Ⅰ");
+            if (value <= 0.05m) return (2, "Ⅱ");
+            if (value <= 0.1m) return (5, "Ⅴ");
+            if (value > 0.1m) return (6, "劣Ⅴ");
             return null;
         }
 
@@ -357,13 +357,13 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetPBGrade(double value)
+        public static (int, string)? GetPBGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.01) return (1, "Ⅰ");
-            if (value <= 0.05) return (3, "Ⅲ");
-            if (value <= 0.1) return (5, "Ⅴ");
-            if (value > 0.1) return (6, "劣Ⅴ");
+            if (value <= 0.01m) return (1, "Ⅰ");
+            if (value <= 0.05m) return (3, "Ⅲ");
+            if (value <= 0.1m) return (5, "Ⅴ");
+            if (value > 0.1m) return (6, "劣Ⅴ");
             return null;
         }
 
@@ -372,13 +372,13 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetCNGrade(double value)
+        public static (int, string)? GetCNGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.005) return (1, "Ⅰ");
-            if (value <= 0.05) return (2, "Ⅱ");
-            if (value <= 0.2) return (3, "Ⅲ");
-            if (value > 0.2) return (6, "劣Ⅴ");
+            if (value <= 0.005m) return (1, "Ⅰ");
+            if (value <= 0.05m) return (2, "Ⅱ");
+            if (value <= 0.2m) return (3, "Ⅲ");
+            if (value > 0.2m) return (6, "劣Ⅴ");
             return null;
         }
 
@@ -387,14 +387,14 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetPHENGrade(double value)
+        public static (int, string)? GetPHENGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.002) return (1, "Ⅰ");
-            if (value <= 0.005) return (3, "Ⅲ");
-            if (value <= 0.01) return (4, "Ⅳ");
-            if (value <= 0.1) return (5, "Ⅴ");
-            if (value > 0.1) return (6, "劣Ⅴ");
+            if (value <= 0.002m) return (1, "Ⅰ");
+            if (value <= 0.005m) return (3, "Ⅲ");
+            if (value <= 0.01m) return (4, "Ⅳ");
+            if (value <= 0.1m) return (5, "Ⅴ");
+            if (value > 0.1m) return (6, "劣Ⅴ");
             return null;
         }
 
@@ -403,11 +403,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetTPHGrade(double value)
+        public static (int, string)? GetTPHGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.05) return (1, "Ⅰ");
-            if (value <= 0.5) return (4, "Ⅳ");
+            if (value <= 0.05m) return (1, "Ⅰ");
+            if (value <= 0.5m) return (4, "Ⅳ");
             if (value <= 1) return (5, "Ⅴ");
             if (value > 1) return (6, "劣Ⅴ");
             return null;
@@ -418,12 +418,12 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetLASGrade(double value)
+        public static (int, string)? GetLASGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.2) return (1, "Ⅰ");
-            if (value <= 0.3) return (4, "Ⅳ");
-            if (value > 0.3) return (6, "劣Ⅴ");
+            if (value <= 0.2m) return (1, "Ⅰ");
+            if (value <= 0.3m) return (4, "Ⅳ");
+            if (value > 0.3m) return (6, "劣Ⅴ");
             return null;
         }
 
@@ -432,13 +432,13 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetH2SGrade(double value)
+        public static (int, string)? GetH2SGrade(decimal value)
         {
             if (value <= 0) return null;
-            if (value <= 0.05) return (1, "Ⅰ");
-            if (value <= 0.1) return (2, "Ⅱ");
-            if (value <= 0.2) return (3, "Ⅲ");
-            if (value <= 0.5) return (4, "Ⅳ");
+            if (value <= 0.05m) return (1, "Ⅰ");
+            if (value <= 0.1m) return (2, "Ⅱ");
+            if (value <= 0.2m) return (3, "Ⅲ");
+            if (value <= 0.5m) return (4, "Ⅳ");
             if (value <= 1) return (5, "Ⅴ");
             if (value > 1) return (6, "劣Ⅴ");
             return null;
@@ -449,7 +449,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="value"></param>
         /// <returns>(数字类别,文字类别) eg. (4,Ⅳ)</returns>
-        public static (int, string)? GetFCGrade(double value)
+        public static (int, string)? GetFCGrade(decimal value)
         {
             if (value <= 0) return null;
             if (value <= 200) return (1, "Ⅰ");

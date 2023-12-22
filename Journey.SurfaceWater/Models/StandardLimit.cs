@@ -12,6 +12,6 @@
         /// <summary>
         /// 类别标准限值
         /// </summary>
-        public double Limit { get; set; }
+        public decimal Limit { get; set; }
     }
 }

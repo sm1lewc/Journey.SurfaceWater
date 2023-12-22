@@ -8,98 +8,98 @@
         /// <summary>
         /// 水温
         /// </summary>
-        public double? WT { get; set; }
+        public decimal? WT { get; set; }
         /// <summary>
         /// PH
         /// </summary>
-        public double? PH { get; set; }
+        public decimal? PH { get; set; }
         /// <summary>
         /// 溶解氧
         /// </summary>
-        public double? DO { get; set; }
+        public decimal? DO { get; set; }
         /// <summary>
         /// 高锰酸盐指数
         /// </summary>
-        public double? CODMN { get; set; }
+        public decimal? CODMN { get; set; }
         /// <summary>
         /// 化学需氧量
         /// </summary>
-        public double? COD { get; set; }
+        public decimal? COD { get; set; }
         /// <summary>
         /// 五日生化需氧量
         /// </summary>
-        public double? BOD5 { get; set; }
+        public decimal? BOD5 { get; set; }
         /// <summary>
         /// 氨氮
         /// </summary>
-        public double? NH3N { get; set; }
+        public decimal? NH3N { get; set; }
         /// <summary>
         /// 总磷
         /// </summary>
-        public double? TP { get; set; }
+        public decimal? TP { get; set; }
         /// <summary>
         /// 总氮
         /// </summary>
-        public double? TN { get; set; }
+        public decimal? TN { get; set; }
         /// <summary>
         /// 铜
         /// </summary>
-        public double? CU { get; set; }
+        public decimal? CU { get; set; }
         /// <summary>
         /// 锌
         /// </summary>
-        public double? ZN { get; set; }
+        public decimal? ZN { get; set; }
         /// <summary>
         /// 氟化物
         /// </summary>
-        public double? F { get; set; }
+        public decimal? F { get; set; }
         /// <summary>
         /// 硒
         /// </summary>
-        public double? SE { get; set; }
+        public decimal? SE { get; set; }
         /// <summary>
         /// 砷
         /// </summary>
-        public double? AS { get; set; }
+        public decimal? AS { get; set; }
         /// <summary>
         /// 汞
         /// </summary>
-        public double? HG { get; set; }
+        public decimal? HG { get; set; }
         /// <summary>
         /// 镉
         /// </summary>
-        public double? CD { get; set; }
+        public decimal? CD { get; set; }
         /// <summary>
         /// 铬（六价）
         /// </summary>
-        public double? CR6 { get; set; }
+        public decimal? CR6 { get; set; }
         /// <summary>
         /// 铅
         /// </summary>
-        public double? PB { get; set; }
+        public decimal? PB { get; set; }
         /// <summary>
         /// 氰化物
         /// </summary>
-        public double? CN { get; set; }
+        public decimal? CN { get; set; }
         /// <summary>
         /// 挥发酚
         /// </summary>
-        public double? PHEN { get; set; }
+        public decimal? PHEN { get; set; }
         /// <summary>
         /// 石油类
         /// </summary>
-        public double? TPH { get; set; }
+        public decimal? TPH { get; set; }
         /// <summary>
         /// 阴离子表面活性剂
         /// </summary>
-        public double? LAS { get; set; }
+        public decimal? LAS { get; set; }
         /// <summary>
         /// 硫化物
         /// </summary>
-        public double? H2S { get; set; }
+        public decimal? H2S { get; set; }
         /// <summary>
         /// 粪大肠菌群
         /// </summary>
-        public double? FC { get; set; }
+        public decimal? FC { get; set; }
     }
 }

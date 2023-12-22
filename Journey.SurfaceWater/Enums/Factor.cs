@@ -7,200 +7,228 @@ namespace Journey.SurfaceWater.Enums
     /// </summary>
     public enum Factor
     {
+        //code大写，方便反射匹配
+
+        /// <summary>
+        /// NTU
+        /// </summary>
+        [Description("W01003,NTU")]
+        浊度,
+        /// <summary>
+        /// EC
+        /// </summary>
+        [Description("W01014,EC")]
+        电导率,
         /// <summary>
         /// WT
         /// </summary>
-        [Description("w01010")]
+        [Description("W01010,WT")]
         水温,
         /// <summary>
         /// PH
         /// </summary>
-        [Description("w01001")]
+        [Description("W01001,PH")]
         pH,
         /// <summary>
         /// DO
         /// </summary>
-        [Description("w01009")]
+        [Description("W01009,DO")]
         溶解氧,
         /// <summary>
         /// CODMN
         /// </summary>
-        [Description("w01019")]
+        [Description("W01019,CODMN")]
         高锰酸盐指数,
         /// <summary>
         /// COD
         /// </summary>
-        [Description("w01018")]
+        [Description("W01018,COD")]
         化学需氧量,
         /// <summary>
         /// BOD5
         /// </summary>
-        [Description("w01017")]
+        [Description("BOD5,w01017")]
         五日生化需氧量,
         /// <summary>
         /// NH3N
         /// </summary>
-        [Description("w21003")]
+        [Description("W21003,NH3N")]
         氨氮,
         /// <summary>
         /// TP
         /// </summary>
-        [Description("w21011")]
+        [Description("W21011,TP")]
         总磷,
         /// <summary>
         /// TN
         /// </summary>
-        [Description("w21001")]
+        [Description("W21001,TN")]
         总氮,
         /// <summary>
         /// CU
         /// </summary>
-        [Description("w20122")]
+        [Description("W20122,CU")]
         铜,
         /// <summary>
         /// ZN
         /// </summary>
-        [Description("w20123")]
+        [Description("W20123,ZN")]
         锌,
         /// <summary>
         /// F
         /// </summary>
-        [Description("w21017")]
+        [Description("W21017,F")]
         氟化物,
         /// <summary>
         /// SE
         /// </summary>
-        [Description("w20128")]
+        [Description("W20128,SE")]
         硒,
         /// <summary>
         /// AS
         /// </summary>
-        [Description("w20141")]
+        [Description("W20141,AS")]
         砷,
         /// <summary>
         /// HG
         /// </summary>
-        [Description("w20111")]
+        [Description("W20111,HG")]
         汞,
         /// <summary>
         /// CD
         /// </summary>
-        [Description("w20115")]
+        [Description("W20115,CD")]
         镉,
         /// <summary>
         /// CR6
         /// </summary>
-        [Description("w20117")]
+        [Description("W20117,CR6")]
         六价铬,
         /// <summary>
         /// PB
         /// </summary>
-        [Description("w20120")]
+        [Description("W20120,PB")]
         铅,
         /// <summary>
         /// CN
         /// </summary>
-        [Description("w21016")]
+        [Description("W21016,CN")]
         氰化物,
         /// <summary>
         /// PHEN
         /// </summary>
-        [Description("w23002")]
+        [Description("W23002,PHEN")]
         挥发酚,
         /// <summary>
         /// TPH
         /// </summary>
-        [Description("w22001")]
+        [Description("W22001,TPH")]
         石油类,
         /// <summary>
         /// LAS
         /// </summary>
-        [Description("w19002")]
+        [Description("W19002,LAS")]
         阴离子表面活性剂,
         /// <summary>
         /// H2S
         /// </summary>
-        [Description("w21019")]
+        [Description("W21019,H2S")]
         硫化物,
         /// <summary>
         /// FC
         /// </summary>
-        [Description("w02003")]
+        [Description("W02003,FC")]
         粪大肠菌群,
         /// <summary>
         /// SO42
         /// </summary>
-        [Description("w21038")]
+        [Description("W21038,SO42")]
         硫酸盐,
         /// <summary>
         /// CL
         /// </summary>
-        [Description("w21022")]
+        [Description("W21022,CL")]
         氯化物,
         /// <summary>
         /// NO3
         /// </summary>
-        [Description("w21007")]
+        [Description("W21007,NO3")]
         硝酸盐,
         /// <summary>
         /// FE
         /// </summary>
-        [Description("w20125")]
+        [Description("W20125,FE")]
         铁,
         /// <summary>
         /// MN
         /// </summary>
-        [Description("w20124")]
+        [Description("W20124,MN")]
         锰,
         /// <summary>
         /// MO
         /// </summary>
-        [Description("w20061")]
+        [Description("W20061,MO")]
         钼,
         /// <summary>
         /// CO
         /// </summary>
-        [Description("w20038")]
+        [Description("W20038,CO")]
         钴,
         /// <summary>
         /// BE
         /// </summary>
-        [Description("w20127")]
+        [Description("W20127,BE")]
         铍,
         /// <summary>
         /// B
         /// </summary>
-        [Description("w20023")]
+        [Description("W20023,B")]
         硼,
         /// <summary>
         /// SB
         /// </summary>
-        [Description("w20004")]
+        [Description("W20004,SB")]
         锑,
         /// <summary>
         /// NI
         /// </summary>
-        [Description("w20121")]
+        [Description("W20121,NI")]
         镍,
         /// <summary>
         /// BA
         /// </summary>
-        [Description("w20012")]
+        [Description("W20012,BA")]
         钡,
         /// <summary>
         /// V
         /// </summary>
-        [Description("w20101")]
+        [Description("W20101,V")]
         钒,
         /// <summary>
         /// TI
         /// </summary>
-        [Description("w20095")]
+        [Description("W20095,TI")]
         钛,
         /// <summary>
         /// TL
         /// </summary>
-        [Description("w20089")]
-        铊
+        [Description("W20089,TL")]
+        铊,
+        /// <summary>
+        /// TC
+        /// </summary>
+        [Description("W01004,TC")]
+        透明度,
+        /// <summary>
+        /// CHLA
+        /// </summary>
+        [Description("W01016,CHLA")]
+        叶绿素a,
+        /// <summary>
+        /// C
+        /// </summary>
+        [Description("W19011,C")]
+        藻密度
     }
+
 }

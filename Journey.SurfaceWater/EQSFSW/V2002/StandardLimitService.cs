@@ -13,7 +13,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// 获取PH的标准限值范围
         /// </summary>
         /// <returns></returns>
-        public static (double, double) GetPHLimit()
+        public static (decimal, decimal) GetPHLimit()
         {
             return (6, 9);
         }
@@ -26,7 +26,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 7.5},
+                new StandardLimit(){Grade = 1,Limit = 7.5m},
                 new StandardLimit(){Grade = 2,Limit = 6},
                 new StandardLimit(){Grade = 3,Limit = 5},
                 new StandardLimit(){Grade = 4,Limit = 3},
@@ -39,11 +39,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetDOLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetDOLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 7.5,
+                Enums.WaterGrade.Ⅰ => 7.5m,
                 Enums.WaterGrade.Ⅱ => 6,
                 Enums.WaterGrade.Ⅲ => 5,
                 Enums.WaterGrade.Ⅳ => 3,
@@ -73,7 +73,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetCODMNLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetCODMNLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
@@ -107,7 +107,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetCODLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetCODLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
@@ -141,7 +141,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetBOD5LimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetBOD5LimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
@@ -162,10 +162,10 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.15},
-                new StandardLimit(){Grade = 2,Limit = 0.5},
+                new StandardLimit(){Grade = 1,Limit = 0.15m},
+                new StandardLimit(){Grade = 2,Limit = 0.5m},
                 new StandardLimit(){Grade = 3,Limit = 1},
-                new StandardLimit(){Grade = 4,Limit = 1.5},
+                new StandardLimit(){Grade = 4,Limit = 1.5m},
                 new StandardLimit(){Grade = 5,Limit = 2}
             };
         }
@@ -175,14 +175,14 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetNH3NLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetNH3NLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.15,
-                Enums.WaterGrade.Ⅱ => 0.5,
+                Enums.WaterGrade.Ⅰ => 0.15m,
+                Enums.WaterGrade.Ⅱ => 0.5m,
                 Enums.WaterGrade.Ⅲ => 1,
-                Enums.WaterGrade.Ⅳ => 1.5,
+                Enums.WaterGrade.Ⅳ => 1.5m,
                 Enums.WaterGrade.Ⅴ => 2,
                 _ => null,
             };
@@ -197,19 +197,19 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             if (waterBody == Enums.Waterbody.湖库) return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.01},
-                new StandardLimit(){Grade = 2,Limit = 0.025},
-                new StandardLimit(){Grade = 3,Limit = 0.05},
-                new StandardLimit(){Grade = 4,Limit = 0.1},
-                new StandardLimit(){Grade = 5,Limit = 0.2}
+                new StandardLimit(){Grade = 1,Limit = 0.01m},
+                new StandardLimit(){Grade = 2,Limit = 0.025m},
+                new StandardLimit(){Grade = 3,Limit = 0.05m},
+                new StandardLimit(){Grade = 4,Limit = 0.1m},
+                new StandardLimit(){Grade = 5,Limit = 0.2m}
             };
             else return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.02},
-                new StandardLimit(){Grade = 2,Limit = 0.1},
-                new StandardLimit(){Grade = 3,Limit = 0.2},
-                new StandardLimit(){Grade = 4,Limit = 0.3},
-                new StandardLimit(){Grade = 5,Limit = 0.4}
+                new StandardLimit(){Grade = 1,Limit = 0.02m},
+                new StandardLimit(){Grade = 2,Limit = 0.1m},
+                new StandardLimit(){Grade = 3,Limit = 0.2m},
+                new StandardLimit(){Grade = 4,Limit = 0.3m},
+                new StandardLimit(){Grade = 5,Limit = 0.4m}
             };
         }
 
@@ -219,24 +219,24 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// <param name="grade"></param>
         /// <param name="waterBody">河流/湖库</param>
         /// <returns></returns>
-        public static double? GetTPLimitByGrade(Enums.WaterGrade grade, Enums.Waterbody waterBody = Enums.Waterbody.河流)
+        public static decimal? GetTPLimitByGrade(Enums.WaterGrade grade, Enums.Waterbody waterBody = Enums.Waterbody.河流)
         {
             if (waterBody == Enums.Waterbody.湖库) return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.01,
-                Enums.WaterGrade.Ⅱ => 0.025,
-                Enums.WaterGrade.Ⅲ => 0.05,
-                Enums.WaterGrade.Ⅳ => 0.1,
-                Enums.WaterGrade.Ⅴ => 0.2,
+                Enums.WaterGrade.Ⅰ => 0.01m,
+                Enums.WaterGrade.Ⅱ => 0.025m,
+                Enums.WaterGrade.Ⅲ => 0.05m,
+                Enums.WaterGrade.Ⅳ => 0.1m,
+                Enums.WaterGrade.Ⅴ => 0.2m,
                 _ => null,
             };
             else return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.02,
-                Enums.WaterGrade.Ⅱ => 0.1,
-                Enums.WaterGrade.Ⅲ => 0.2,
-                Enums.WaterGrade.Ⅳ => 0.3,
-                Enums.WaterGrade.Ⅴ => 0.4,
+                Enums.WaterGrade.Ⅰ => 0.02m,
+                Enums.WaterGrade.Ⅱ => 0.1m,
+                Enums.WaterGrade.Ⅲ => 0.2m,
+                Enums.WaterGrade.Ⅳ => 0.3m,
+                Enums.WaterGrade.Ⅴ => 0.4m,
                 _ => null,
             };
         }
@@ -249,10 +249,10 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.2},
-                new StandardLimit(){Grade = 2,Limit = 0.5},
+                new StandardLimit(){Grade = 1,Limit = 0.2m},
+                new StandardLimit(){Grade = 2,Limit = 0.5m},
                 new StandardLimit(){Grade = 3,Limit = 1},
-                new StandardLimit(){Grade = 4,Limit = 1.5},
+                new StandardLimit(){Grade = 4,Limit = 1.5m},
                 new StandardLimit(){Grade = 5,Limit = 2}
             };
         }
@@ -262,14 +262,14 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetTNLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetTNLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.2,
-                Enums.WaterGrade.Ⅱ => 0.5,
+                Enums.WaterGrade.Ⅰ => 0.2m,
+                Enums.WaterGrade.Ⅱ => 0.5m,
                 Enums.WaterGrade.Ⅲ => 1,
-                Enums.WaterGrade.Ⅳ => 1.5,
+                Enums.WaterGrade.Ⅳ => 1.5m,
                 Enums.WaterGrade.Ⅴ => 2,
                 _ => null,
             };
@@ -283,7 +283,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.01},
+                new StandardLimit(){Grade = 1,Limit = 0.01m},
                 new StandardLimit(){Grade = 2,Limit = 1},
                 new StandardLimit(){Grade = 3,Limit = 1},
                 new StandardLimit(){Grade = 4,Limit = 1},
@@ -296,11 +296,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetCULimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetCULimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.01,
+                Enums.WaterGrade.Ⅰ => 0.01m,
                 Enums.WaterGrade.Ⅱ => 1,
                 Enums.WaterGrade.Ⅲ => 1,
                 Enums.WaterGrade.Ⅳ => 1,
@@ -317,7 +317,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                 new StandardLimit(){Grade = 1,Limit = 0.05},
+                 new StandardLimit(){Grade = 1,Limit = 0.05m},
                 new StandardLimit(){Grade = 2,Limit = 1},
                 new StandardLimit(){Grade = 3,Limit = 1},
                 new StandardLimit(){Grade = 4,Limit = 2},
@@ -330,11 +330,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetZNLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetZNLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.05,
+                Enums.WaterGrade.Ⅰ => 0.05m,
                 Enums.WaterGrade.Ⅱ => 1,
                 Enums.WaterGrade.Ⅲ => 1,
                 Enums.WaterGrade.Ⅳ => 2,
@@ -354,8 +354,8 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
                new StandardLimit(){Grade = 1,Limit = 1},
                 new StandardLimit(){Grade = 2,Limit = 1},
                 new StandardLimit(){Grade = 3,Limit = 1},
-                new StandardLimit(){Grade = 4,Limit = 1.5},
-                new StandardLimit(){Grade = 5,Limit = 1.5}
+                new StandardLimit(){Grade = 4,Limit = 1.5m},
+                new StandardLimit(){Grade = 5,Limit = 1.5m}
             };
         }
 
@@ -364,15 +364,15 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetFLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetFLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
                 Enums.WaterGrade.Ⅰ => 1,
                 Enums.WaterGrade.Ⅱ => 1,
                 Enums.WaterGrade.Ⅲ => 1,
-                Enums.WaterGrade.Ⅳ => 1.5,
-                Enums.WaterGrade.Ⅴ => 1.5,
+                Enums.WaterGrade.Ⅳ => 1.5m,
+                Enums.WaterGrade.Ⅴ => 1.5m,
                 _ => null,
             };
         }
@@ -385,11 +385,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.01},
-                new StandardLimit(){Grade = 2,Limit = 0.01},
-                new StandardLimit(){Grade = 3,Limit = 0.01},
-                new StandardLimit(){Grade = 4,Limit = 0.02},
-                new StandardLimit(){Grade = 5,Limit = 0.02}
+                new StandardLimit(){Grade = 1,Limit = 0.01m},
+                new StandardLimit(){Grade = 2,Limit = 0.01m},
+                new StandardLimit(){Grade = 3,Limit = 0.01m},
+                new StandardLimit(){Grade = 4,Limit = 0.02m},
+                new StandardLimit(){Grade = 5,Limit = 0.02m}
             };
         }
 
@@ -398,15 +398,15 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetSELimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetSELimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.01,
-                Enums.WaterGrade.Ⅱ => 0.01,
-                Enums.WaterGrade.Ⅲ => 0.01,
-                Enums.WaterGrade.Ⅳ => 0.02,
-                Enums.WaterGrade.Ⅴ => 0.02,
+                Enums.WaterGrade.Ⅰ => 0.01m,
+                Enums.WaterGrade.Ⅱ => 0.01m,
+                Enums.WaterGrade.Ⅲ => 0.01m,
+                Enums.WaterGrade.Ⅳ => 0.02m,
+                Enums.WaterGrade.Ⅴ => 0.02m,
                 _ => null,
             };
         }
@@ -419,11 +419,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.05},
-                new StandardLimit(){Grade = 2,Limit = 0.05},
-                new StandardLimit(){Grade = 3,Limit = 0.05},
-                new StandardLimit(){Grade = 4,Limit = 0.1},
-                new StandardLimit(){Grade = 5,Limit = 0.1}
+                new StandardLimit(){Grade = 1,Limit = 0.05m},
+                new StandardLimit(){Grade = 2,Limit = 0.05m},
+                new StandardLimit(){Grade = 3,Limit = 0.05m},
+                new StandardLimit(){Grade = 4,Limit = 0.1m},
+                new StandardLimit(){Grade = 5,Limit = 0.1m}
             };
         }
 
@@ -432,15 +432,15 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetASLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetASLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.05,
-                Enums.WaterGrade.Ⅱ => 0.05,
-                Enums.WaterGrade.Ⅲ => 0.05,
-                Enums.WaterGrade.Ⅳ => 0.1,
-                Enums.WaterGrade.Ⅴ => 0.1,
+                Enums.WaterGrade.Ⅰ => 0.05m,
+                Enums.WaterGrade.Ⅱ => 0.05m,
+                Enums.WaterGrade.Ⅲ => 0.05m,
+                Enums.WaterGrade.Ⅳ => 0.1m,
+                Enums.WaterGrade.Ⅴ => 0.1m,
                 _ => null,
             };
         }
@@ -453,11 +453,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.00005},
-                new StandardLimit(){Grade = 2,Limit = 0.00005},
-                new StandardLimit(){Grade = 3,Limit = 0.0001},
-                new StandardLimit(){Grade = 4,Limit = 0.001},
-                new StandardLimit(){Grade = 5,Limit = 0.001}
+                new StandardLimit(){Grade = 1,Limit = 0.00005m},
+                new StandardLimit(){Grade = 2,Limit = 0.00005m},
+                new StandardLimit(){Grade = 3,Limit = 0.0001m},
+                new StandardLimit(){Grade = 4,Limit = 0.001m},
+                new StandardLimit(){Grade = 5,Limit = 0.001m}
             };
         }
 
@@ -466,15 +466,15 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetHGLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetHGLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.00005,
-                Enums.WaterGrade.Ⅱ => 0.00005,
-                Enums.WaterGrade.Ⅲ => 0.0001,
-                Enums.WaterGrade.Ⅳ => 0.001,
-                Enums.WaterGrade.Ⅴ => 0.001,
+                Enums.WaterGrade.Ⅰ => 0.00005m,
+                Enums.WaterGrade.Ⅱ => 0.00005m,
+                Enums.WaterGrade.Ⅲ => 0.0001m,
+                Enums.WaterGrade.Ⅳ => 0.001m,
+                Enums.WaterGrade.Ⅴ => 0.001m,
                 _ => null,
             };
         }
@@ -487,11 +487,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-               new StandardLimit(){Grade = 1,Limit = 0.001},
-                new StandardLimit(){Grade = 2,Limit = 0.005},
-                new StandardLimit(){Grade = 3,Limit = 0.005},
-                new StandardLimit(){Grade = 4,Limit = 0.005},
-                new StandardLimit(){Grade = 5,Limit = 0.01}
+               new StandardLimit(){Grade = 1,Limit = 0.001m},
+                new StandardLimit(){Grade = 2,Limit = 0.005m},
+                new StandardLimit(){Grade = 3,Limit = 0.005m},
+                new StandardLimit(){Grade = 4,Limit = 0.005m},
+                new StandardLimit(){Grade = 5,Limit = 0.01m}
             };
         }
 
@@ -500,15 +500,15 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetCDLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetCDLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.001,
-                Enums.WaterGrade.Ⅱ => 0.005,
-                Enums.WaterGrade.Ⅲ => 0.005,
-                Enums.WaterGrade.Ⅳ => 0.005,
-                Enums.WaterGrade.Ⅴ => 0.01,
+                Enums.WaterGrade.Ⅰ => 0.001m,
+                Enums.WaterGrade.Ⅱ => 0.005m,
+                Enums.WaterGrade.Ⅲ => 0.005m,
+                Enums.WaterGrade.Ⅳ => 0.005m,
+                Enums.WaterGrade.Ⅴ => 0.01m,
                 _ => null,
             };
         }
@@ -521,11 +521,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.01},
-                new StandardLimit(){Grade = 2,Limit = 0.05},
-                new StandardLimit(){Grade = 3,Limit = 0.05},
-                new StandardLimit(){Grade = 4,Limit = 0.05},
-                new StandardLimit(){Grade = 5,Limit = 0.1}
+                new StandardLimit(){Grade = 1,Limit = 0.01m},
+                new StandardLimit(){Grade = 2,Limit = 0.05m},
+                new StandardLimit(){Grade = 3,Limit = 0.05m},
+                new StandardLimit(){Grade = 4,Limit = 0.05m},
+                new StandardLimit(){Grade = 5,Limit = 0.1m}
             };
         }
 
@@ -534,15 +534,15 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetCR6LimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetCR6LimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.01,
-                Enums.WaterGrade.Ⅱ => 0.05,
-                Enums.WaterGrade.Ⅲ => 0.05,
-                Enums.WaterGrade.Ⅳ => 0.05,
-                Enums.WaterGrade.Ⅴ => 0.1,
+                Enums.WaterGrade.Ⅰ => 0.01m,
+                Enums.WaterGrade.Ⅱ => 0.05m,
+                Enums.WaterGrade.Ⅲ => 0.05m,
+                Enums.WaterGrade.Ⅳ => 0.05m,
+                Enums.WaterGrade.Ⅴ => 0.1m,
                 _ => null,
             };
         }
@@ -555,11 +555,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.01},
-                new StandardLimit(){Grade = 2,Limit = 0.01},
-                new StandardLimit(){Grade = 3,Limit = 0.05},
-                new StandardLimit(){Grade = 4,Limit = 0.05},
-                new StandardLimit(){Grade = 5,Limit = 0.1}
+                new StandardLimit(){Grade = 1,Limit = 0.01m},
+                new StandardLimit(){Grade = 2,Limit = 0.01m},
+                new StandardLimit(){Grade = 3,Limit = 0.05m},
+                new StandardLimit(){Grade = 4,Limit = 0.05m},
+                new StandardLimit(){Grade = 5,Limit = 0.1m}
             };
         }
 
@@ -569,15 +569,15 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetPBLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetPBLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.01,
-                Enums.WaterGrade.Ⅱ => 0.01,
-                Enums.WaterGrade.Ⅲ => 0.05,
-                Enums.WaterGrade.Ⅳ => 0.05,
-                Enums.WaterGrade.Ⅴ => 0.1,
+                Enums.WaterGrade.Ⅰ => 0.01m,
+                Enums.WaterGrade.Ⅱ => 0.01m,
+                Enums.WaterGrade.Ⅲ => 0.05m,
+                Enums.WaterGrade.Ⅳ => 0.05m,
+                Enums.WaterGrade.Ⅴ => 0.1m,
                 _ => null,
             };
         }
@@ -590,11 +590,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.005},
-                new StandardLimit(){Grade = 2,Limit = 0.05},
-                new StandardLimit(){Grade = 3,Limit = 0.2},
-                new StandardLimit(){Grade = 4,Limit = 0.2},
-                new StandardLimit(){Grade = 5,Limit = 0.2}
+                new StandardLimit(){Grade = 1,Limit = 0.005m},
+                new StandardLimit(){Grade = 2,Limit = 0.05m},
+                new StandardLimit(){Grade = 3,Limit = 0.2m},
+                new StandardLimit(){Grade = 4,Limit = 0.2m},
+                new StandardLimit(){Grade = 5,Limit = 0.2m}
             };
         }
 
@@ -603,15 +603,15 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetCNLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetCNLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.005,
-                Enums.WaterGrade.Ⅱ => 0.05,
-                Enums.WaterGrade.Ⅲ => 0.2,
-                Enums.WaterGrade.Ⅳ => 0.2,
-                Enums.WaterGrade.Ⅴ => 0.2,
+                Enums.WaterGrade.Ⅰ => 0.005m,
+                Enums.WaterGrade.Ⅱ => 0.05m,
+                Enums.WaterGrade.Ⅲ => 0.2m,
+                Enums.WaterGrade.Ⅳ => 0.2m,
+                Enums.WaterGrade.Ⅴ => 0.2m,
                 _ => null,
             };
         }
@@ -624,11 +624,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.002},
-                new StandardLimit(){Grade = 2,Limit = 0.002},
-                new StandardLimit(){Grade = 3,Limit = 0.005},
-                new StandardLimit(){Grade = 4,Limit = 0.01},
-                new StandardLimit(){Grade = 5,Limit = 0.1}
+                new StandardLimit(){Grade = 1,Limit = 0.002m},
+                new StandardLimit(){Grade = 2,Limit = 0.002m},
+                new StandardLimit(){Grade = 3,Limit = 0.005m},
+                new StandardLimit(){Grade = 4,Limit = 0.01m},
+                new StandardLimit(){Grade = 5,Limit = 0.1m}
             };
         }
 
@@ -637,15 +637,15 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetPHENLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetPHENLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.002,
-                Enums.WaterGrade.Ⅱ => 0.002,
-                Enums.WaterGrade.Ⅲ => 0.005,
-                Enums.WaterGrade.Ⅳ => 0.01,
-                Enums.WaterGrade.Ⅴ => 0.1,
+                Enums.WaterGrade.Ⅰ => 0.002m,
+                Enums.WaterGrade.Ⅱ => 0.002m,
+                Enums.WaterGrade.Ⅲ => 0.005m,
+                Enums.WaterGrade.Ⅳ => 0.01m,
+                Enums.WaterGrade.Ⅴ => 0.1m,
                 _ => null,
             };
         }
@@ -658,10 +658,10 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.05},
-                new StandardLimit(){Grade = 2,Limit = 0.05},
-                new StandardLimit(){Grade = 3,Limit = 0.05},
-                new StandardLimit(){Grade = 4,Limit = 0.5},
+                new StandardLimit(){Grade = 1,Limit = 0.05m},
+                new StandardLimit(){Grade = 2,Limit = 0.05m},
+                new StandardLimit(){Grade = 3,Limit = 0.05m},
+                new StandardLimit(){Grade = 4,Limit = 0.5m},
                 new StandardLimit(){Grade = 5,Limit = 1}
             };
         }
@@ -671,14 +671,14 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetTPHLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetTPHLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.05,
-                Enums.WaterGrade.Ⅱ => 0.05,
-                Enums.WaterGrade.Ⅲ => 0.05,
-                Enums.WaterGrade.Ⅳ => 0.5,
+                Enums.WaterGrade.Ⅰ => 0.05m,
+                Enums.WaterGrade.Ⅱ => 0.05m,
+                Enums.WaterGrade.Ⅲ => 0.05m,
+                Enums.WaterGrade.Ⅳ => 0.5m,
                 Enums.WaterGrade.Ⅴ => 1,
                 _ => null,
             };
@@ -692,11 +692,11 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.2},
-                new StandardLimit(){Grade = 2,Limit = 0.2},
-                new StandardLimit(){Grade = 3,Limit = 0.2},
-                new StandardLimit(){Grade = 4,Limit = 0.3},
-                new StandardLimit(){Grade = 5,Limit = 0.3}
+                new StandardLimit(){Grade = 1,Limit = 0.2m},
+                new StandardLimit(){Grade = 2,Limit = 0.2m},
+                new StandardLimit(){Grade = 3,Limit = 0.2m},
+                new StandardLimit(){Grade = 4,Limit = 0.3m},
+                new StandardLimit(){Grade = 5,Limit = 0.3m}
             };
         }
 
@@ -705,15 +705,15 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetLASLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetLASLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.2,
-                Enums.WaterGrade.Ⅱ => 0.2,
-                Enums.WaterGrade.Ⅲ => 0.2,
-                Enums.WaterGrade.Ⅳ => 0.3,
-                Enums.WaterGrade.Ⅴ => 0.3,
+                Enums.WaterGrade.Ⅰ => 0.2m,
+                Enums.WaterGrade.Ⅱ => 0.2m,
+                Enums.WaterGrade.Ⅲ => 0.2m,
+                Enums.WaterGrade.Ⅳ => 0.3m,
+                Enums.WaterGrade.Ⅴ => 0.3m,
                 _ => null,
             };
         }
@@ -726,10 +726,10 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         {
             return new List<StandardLimit>()
             {
-                new StandardLimit(){Grade = 1,Limit = 0.05},
-                new StandardLimit(){Grade = 2,Limit = 0.1},
-                new StandardLimit(){Grade = 3,Limit = 0.2},
-                new StandardLimit(){Grade = 4,Limit = 0.5},
+                new StandardLimit(){Grade = 1,Limit = 0.05m},
+                new StandardLimit(){Grade = 2,Limit = 0.1m},
+                new StandardLimit(){Grade = 3,Limit = 0.2m},
+                new StandardLimit(){Grade = 4,Limit = 0.5m},
                 new StandardLimit(){Grade = 5,Limit = 1}
             };
         }
@@ -739,14 +739,14 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetH2SLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetH2SLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
-                Enums.WaterGrade.Ⅰ => 0.05,
-                Enums.WaterGrade.Ⅱ => 0.1,
-                Enums.WaterGrade.Ⅲ => 0.2,
-                Enums.WaterGrade.Ⅳ => 0.5,
+                Enums.WaterGrade.Ⅰ => 0.05m,
+                Enums.WaterGrade.Ⅱ => 0.1m,
+                Enums.WaterGrade.Ⅲ => 0.2m,
+                Enums.WaterGrade.Ⅳ => 0.5m,
                 Enums.WaterGrade.Ⅴ => 1,
                 _ => null,
             };
@@ -773,7 +773,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// </summary>
         /// <param name="grade"></param>
         /// <returns></returns>
-        public static double? GetFCLimitByGrade(Enums.WaterGrade grade)
+        public static decimal? GetFCLimitByGrade(Enums.WaterGrade grade)
         {
             return grade switch
             {
@@ -791,91 +791,91 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// 获取硫酸盐的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetSO42Limit() => 250;
+        public static decimal GetSO42Limit() => 250;
 
         /// <summary>
         /// 获取氯化物的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetCLLimit() => 250;
+        public static decimal GetCLLimit() => 250;
 
         /// <summary>
         /// 获取硝酸盐的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetNO3Limit() => 10;
+        public static decimal GetNO3Limit() => 10;
 
         /// <summary>
         /// 获取铁的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetFELimit() => 0.3;
+        public static decimal GetFELimit() => 0.3m;
 
         /// <summary>
         /// 获取锰的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetMNLimit() => 0.1;
+        public static decimal GetMNLimit() => 0.1m;
 
         /// <summary>
         /// 获取钼的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetMOLimit() => 0.07;
+        public static decimal GetMOLimit() => 0.07m;
 
         /// <summary>
         /// 获取钴的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetCOLimit() => 1;
+        public static decimal GetCOLimit() => 1;
 
         /// <summary>
         /// 获取铍的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetBELimit() => 0.002;
+        public static decimal GetBELimit() => 0.002m;
 
         /// <summary>
         /// 获取硼的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetBLimit() => 0.5;
+        public static decimal GetBLimit() => 0.5m;
 
         /// <summary>
         /// 获取锑的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetSBLimit() => 0.005;
+        public static decimal GetSBLimit() => 0.005m;
 
         /// <summary>
         /// 获取镍的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetNILimit() => 0.02;
+        public static decimal GetNILimit() => 0.02m;
 
         /// <summary>
         /// 获取钡的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetBALimit() => 0.7;
+        public static decimal GetBALimit() => 0.7m;
 
         /// <summary>
         /// 获取钒的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetVLimit() => 0.05;
+        public static decimal GetVLimit() => 0.05m;
 
         /// <summary>
         /// 获取钛的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetTILimit() => 0.1;
+        public static decimal GetTILimit() => 0.1m;
 
         /// <summary>
         /// 获取铊的标准值
         /// </summary>
         /// <returns></returns>
-        public static double GetTLLimit() => 0.0001;
+        public static decimal GetTLLimit() => 0.0001m;
 
         /// <summary>
         /// 根据指标的简写或者代码获取类别的标准限值
@@ -885,7 +885,7 @@ namespace Journey.SurfaceWater.EQSFSW.V2002
         /// <param name="factorAbbrOrCode">codmn或w01019,不区分大小写</param>
         /// <param name="waterbody"></param>
         /// <returns></returns>
-        public static double? GetFactorLimitByGradeAndFactor(Enums.WaterGrade grade, string factorAbbrOrCode, Waterbody waterbody = Waterbody.河流)
+        public static decimal? GetFactorLimitByGradeAndFactor(Enums.WaterGrade grade, string factorAbbrOrCode, Waterbody waterbody = Waterbody.河流)
         {
             switch (factorAbbrOrCode.ToUpper())
             {
